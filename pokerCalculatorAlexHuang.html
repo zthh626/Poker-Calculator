@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Poker Calculator</title>
+    <link rel="stylesheet" href="pokerCalculatorAlexHuang.css">  
+	<link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet"> 
+	<script src="pokerCalculatorAlexHuang.js"></script>
+  </head>
+
+  <body>
+    <div id="main">
+	  <div class="unhidden" id="firstPage">
+	    
+	    <h1>Poker Calculator</h1>
+		
+		<div id="buttons">
+		  <div class="button">
+		    <a class="text" href="javascript:pageOne(1)">One Player</a>
+		  </div>
+		  <div class="button">
+		    <a class="text" href="javascript:pageOne(2)">Two Player</a>
+		  </div>
+		  <div class="button">
+		    <a class="text" href="javascript:pageOne(3)">Three Player</a>
+		  </div>
+		  <div class="button">
+		    <a class="text" href="javascript:pageOne(4)">Instructions</a>
+		  </div>
+		</div>
+	  </div>
+	  
+	  <div class="hidden" id="instructions">
+	    <div id="instruct">
+		  <div id="instr">Instructions</div>
+		  <div id="inBack">
+		  <a id="inBacks" href="">Back</a>
+		  </div>
+		  <div id="inst">
+		    Player A inputs a five digit number. Player B then inputs a five digit number, and player A's number will be divided by it. The first 5 digits of the remaining decimal number is player A's hand. 
+            <br>
+            Player B inputs a five digit number. Player C Player then generates a random five digit number, and player B's number will be divided by it. The first 5 digits of the remaining decimal number is player B's hand. 
+            <br>
+            Player C generates a random five digit number. Player A then inputs a five digit number, and computer player's number will be divided by it. The first five digits of the remaining decimal number is Player C's hand. 
+            <br>
+            *NOTE* You may not divide by the same number as the previous entry. This would result in a hand of 1, and the process would have to be repeated.
+		  </div>
+		</div>
+	  </div>
+	  
+	  <div class="hidden" id="game">
+	    <div id="playerOne">
+		  <div id="p1Name">
+		    <div id="p1Text">
+			  Player One
+			</div>
+		  </div>
+		  <div id="p1Hand">
+		    <div class="textFH">First Hand:
+			</div>
+		    <div id="firstHand1">
+			</div>
+			<div class="textFIH">Final Hand:
+			</div>
+			<div id="finalHand1">
+			</div>
+		  </div>
+		</div>
+		<div id="playerTwo">
+		  <div id="p2Name">
+		    <div id="p2Text">
+			  Player Two
+			</div>
+		  </div>
+		  <div id="p2Hand">
+		    <div class="textFH">First Hand:
+			</div>
+		    <div id="firstHand2">
+			</div>
+			<div class="textFIH">Final Hand:
+			</div>
+			<div id="finalHand2">
+			</div>
+		  </div>
+		</div>
+		<div id="playerThree">
+		  <div id="p3Name">
+		    <div id="p3Text">
+			  Player Three
+			</div>
+		  </div>
+		  <div id="p3Hand">
+		    <div class="textFH">First Hand:
+			</div>
+		    <div id="firstHand3">
+			</div>
+			<div class="textFIH">Final Hand:
+			</div>
+			<div id="finalHand3">
+			</div>
+		  </div>
+		</div>
+		<div class="unhidden" id="enterText">
+		  <div id="smhText">
+		    Enter Player One's Name
+		  </div>
+		  <form id="texty" action="javascript:textEnter()" autocomplete="off">
+		    <input type="text" id="textField">
+		    <input id="textButton" type="submit" value="Continue">
+		  </form>
+		</div>
+		<div class="hidden" id="numPad">
+		  <div id="ollo">
+		    <div id="gIn">asdf
+		    </div>
+		  </div>
+		  <div id="outsidePad">
+		    <div id="numDisplay">
+			</div>
+			<div onclick="javascript:pressButton(10)" id="clear"> Clear
+			</div>
+			<div onclick="javascript:pressButton(11)" id="enter"> Continue
+			</div>
+			<div id="numKeys">
+			  <div id="smallKeys">
+			    <div class="rowOneKey">
+			      <div onclick="javascript:pressButton(7)" class="keys1">7
+			      </div>
+			      <div onclick="javascript:pressButton(8)" class="keys1">8
+			      </div>
+			      <div onclick="javascript:pressButton(9)" class="keys1">9
+			      </div>
+			    </div>
+			    <div class="rowOneKey">
+			      <div onclick="javascript:pressButton(4)" class="keys1">4
+			      </div>
+			      <div onclick="javascript:pressButton(5)" class="keys1">5
+			      </div>
+			      <div onclick="javascript:pressButton(6)" class="keys1">6
+			      </div>
+			    </div>
+			    <div class="rowOneKey">
+			      <div onclick="javascript:pressButton(1)" class="keys1">1
+			      </div>
+			      <div onclick="javascript:pressButton(2)" class="keys1">2
+			      </div>
+			      <div onclick="javascript:pressButton(3)" class="keys1">3
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div onclick="javascript:pressButton(0)" id="bottomKey"> 0
+			</div>
+		  </div>
+		</div>
+		<div class="hidden" id="nextB">
+		    <a class="textOop" href="javascript:nexty()">Next</a>
+		</div>
+		<div class="hidden" id="resultsPage">
+		  <div id="results1">
+		    <div id="results11">
+			  <div class="results21">
+			    <div class="places">
+				  <span>1st Place: </span><span id="winner"></span>
+				</div>
+				<div class="oopoo" id="handName11">
+				  Hand: <span class="opoop" id="handName1"></span>
+				</div>
+				<div class="oopoo" id="highCard11">
+				  High Card: <span class="opoop" id="highCard1"></span>
+				</div>
+			  </div>
+			</div>
+			<div id="results12">
+			  <div class="results21">
+			    <div class="places">
+				  <span>2nd Place: </span><span id="second"></span>
+				</div>
+				<div class="oopoo" id="handName22">
+				  Hand: <span class="opoop" id="handName2"></span>
+				</div>
+				<div class="oopoo" id="highCard22">
+				  High Card: <span class="opoop" id="highCard2"></span>
+				</div>
+			  </div>
+			</div>
+			<div id="results13">
+			  <div class="results21">
+			    <div class="places">
+				  <span>3rd Place: </span><span id="third"></span>
+				</div>
+				<div class="oopoo" id="handName33">
+				  Hand: <span class="opoop" id="handName3"></span>
+				</div>
+				<div class="oopoo" id="highCard33">
+				  High Card: <span class="opoop" id="highCard3"></span>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="hidden" id="error">
+	  <div id="error1">
+	    <div id="error2">Error
+		</div>
+		<div id="error3">You may not divide by the same number as the previous entry. This would result in a hand of 1, and the process would have to be repeated.
+		</div>
+		<a href="javascript:closeIt()" id="contd">Continue
+		</a>
+	  </div>
+	</div>
+	  
+  </body>
+  
+</html>
